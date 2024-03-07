@@ -45,7 +45,7 @@ curl -X POST localhost:80 \
     '
 
 # Anywhere
-curl -X POST testnet.galadriel.com \
+curl -X POST https://testnet.galadriel.com \
   -H "Content-Type: application/json" \
   --data \
     '
