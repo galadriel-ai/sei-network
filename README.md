@@ -27,3 +27,19 @@ cd ..
 ```shell
 docker compose up --build -d
 ```
+
+### Verify that proxy works
+
+```shell
+curl -X POST localhost:80 \
+  -H "Content-Type: application/json" \
+  --data \
+    '
+        {
+          "jsonrpc": "2.0",
+          "method": "eth_getBalance",
+          "params": ["0xacD492cBFB5215bb44bAB69E64553a6a5164F8f7", "latest"],
+          "id": 1
+        }
+    '
+```
