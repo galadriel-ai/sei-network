@@ -25,7 +25,7 @@ cd ..
 ### Setup nginx proxy
 
 ```shell
-docker compose up --build -d
+./deploy.sh
 ```
 
 ### Verify that proxy works
