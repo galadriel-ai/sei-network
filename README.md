@@ -3,7 +3,7 @@
 ### Deploying the network
 
 Pre-requirements:
-* docker
+* docker and docker-compose
 * make and gcc
 
 ```shell
@@ -25,5 +25,5 @@ cd ..
 ### Setup nginx proxy
 
 ```shell
-
+docker compose up --build -d
 ```
