@@ -7,9 +7,7 @@ Pre-requirements:
 * make and gcc
 
 ```shell
-git clone git@github.com:galadriel-ai/sei-network.git
-cd sei-network
-git clone https://github.com/sei-protocol/sei-chain.git
+git clone git@github.com:galadriel-ai/sei-chain.git
 cd sei-chain
 git checkout v4.1.4-evm-devnet
 # fix the Makefile:
@@ -18,20 +16,34 @@ git checkout v4.1.4-evm-devnet
 # * Line 140: depending on what host you are running, on MacOs:
 #   * switch --network host with: -p 8545:8545 -p 8546:8546 -p 26657:26657
 make build-docker-node
+make run-local-setup
 make run-local-node
-cd ..
 ```
 
 ### Setup nginx proxy
 
 ```shell
+git clone git@github.com:galadriel-ai/sei-network.git
+cd sei-network
 ./deploy.sh
 ```
 
 ### Verify that proxy works
 
 ```shell
-# Local
+# Local - directly polling the node
+curl -X POST localhost:8545 \
+  -H "Content-Type: application/json" \
+  --data \
+    '
+        {
+          "jsonrpc": "2.0",
+          "method": "eth_getBalance",
+          "params": ["0xacD492cBFB5215bb44bAB69E64553a6a5164F8f7", "latest"],
+          "id": 1
+        }
+    '
+# Local - polling the node through nginx
 curl -X POST localhost:80 \
   -H "Content-Type: application/json" \
   --data \
