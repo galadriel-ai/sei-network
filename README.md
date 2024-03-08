@@ -68,4 +68,18 @@ curl -X POST https://testnet.galadriel.com \
           "id": 1
         }
     '
+
+# get chainId
+curl -X POST https://testnet.galadriel.com \
+  -H "Content-Type: application/json"  \
+  --data '{"method":"eth_chainId","params":[],"id":1,"jsonrpc":"2.0"}'
+```
+
+### Admin
+
+Send funds from validator admin:
+
+```shell
+# Send 100SEI?
+seid tx evm send 0xacD492cBFB5215bb44bAB69E64553a6a5164F8f7 100000000000000000000 --from admin
 ```
