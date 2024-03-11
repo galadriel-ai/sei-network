@@ -9,7 +9,6 @@ Pre-requirements:
 ```shell
 git clone git@github.com:galadriel-ai/sei-chain.git
 cd sei-chain
-git checkout v4.1.4-evm-devnet
 # fix the Makefile:
 # * Line 137: rm -rf -> sudo rm -rf
 # * Line 178: xargs docker kill -> xargs -r docker kill 
