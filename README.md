@@ -72,6 +72,12 @@ curl -X POST https://testnet.galadriel.com \
 curl -X POST https://testnet.galadriel.com \
   -H "Content-Type: application/json"  \
   --data '{"method":"eth_chainId","params":[],"id":1,"jsonrpc":"2.0"}'
+  
+  
+curl -X POST https://testnet.galadriel.com \
+  -H "Content-Type: application/json"  \
+  --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xd1011f25de7e234c3002fd476f090425cec2122fc0569168c3567a6178931431"],"id":1}'
+
 ```
 
 ### Admin
@@ -80,5 +86,9 @@ Send funds from validator admin:
 
 ```shell
 # Send 100SEI?
-seid tx evm send 0xacD492cBFB5215bb44bAB69E64553a6a5164F8f7 100000000000000000000 --from admin
+# 100000000000000000000 =  100 GAL
+# 1000000000000000000   =    1 GAL
+seid tx evm send 0xacD492cBFB5215bb44bAB69E64553a6a5164F8f7 1000000000000000000 --from admin
+seid tx evm send 0x3FABFC6ae7A14c9abBad96Ac2704a7F8D555a079 1000000000000000000 --from admin
+seid tx evm send 0xAAA662c1cB3143f2B096279f48A70a15fbAf1CBd 100000000000000000000 --from admin
 ```
